@@ -2,7 +2,7 @@
 
 namespace Leo
 {
-    class VAO
+    public class VAO
     {
         private readonly float[] vertices =
         {
@@ -45,9 +45,6 @@ namespace Leo
             GL.EnableVertexAttribArray(vertexLocation);
             GL.VertexAttribPointer(vertexLocation, 3, VertexAttribPointerType.Float, false, 5 * sizeof(float), 0);
 
-            // Next, we also setup texture coordinates. It works in much the same way.
-            // We add an offset of 3, since the texture coordinates comes after the position data.
-            // We also change the amount of data to 2 because there's only 2 floats for texture coordinates.
             var texCoordLocation = 1;
             GL.EnableVertexAttribArray(texCoordLocation);
             GL.VertexAttribPointer(texCoordLocation, 2, VertexAttribPointerType.Float, false, 5 * sizeof(float), 3 * sizeof(float));
@@ -58,6 +55,9 @@ namespace Leo
             GL.BindVertexArray(vao);
         }
 
-
+        public void Display() 
+        {
+            GL.DrawElements(PrimitiveType.Triangles, indices.Length, DrawElementsType.UnsignedInt, 0);
+        }
     }
 }

@@ -1,15 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OpenTK.Graphics.OpenGL4;
+using Textures;
 
 namespace Leo
 {
     public abstract class IEntity
     {
-        public abstract void Display();
+        protected Shader shader = null;
 
-        public abstract void Initialize();
+        protected Texture texture = null;
+
+        protected VAO vao = null;
+
+        protected abstract string LoadTexture();
+
+        public void Display()
+        {
+            vao.Use();
+
+            texture.Use(TextureUnit.Texture0);
+
+            shader.Use();
+
+            vao.Display();
+        }
+
+        public void Initialize()
+        {
+            vao = new VAO();
+
+            shader = new Shader();
+
+            //texture = Texture.LoadFromFile(LoadTexture());
+
+            texture = new Texture(LoadTexture());
+        }
     }
 }
