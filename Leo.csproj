@@ -62,7 +62,12 @@
     <Compile Include="Camera.cs" />
     <Compile Include="entity\IEntity.cs" />
     <Compile Include="entity\Sprite.cs" />
+    <Compile Include="ui\ButtonImage.cs" />
+    <Compile Include="ui\ButtonText.cs" />
     <Compile Include="ui\Component.cs" />
+    <Compile Include="ui\Layout.cs" />
+    <Compile Include="ui\LayoutHortizontal.cs" />
+    <Compile Include="ui\LayoutVertical.cs" />
     <Compile Include="ui\Portal.cs" />
     <Compile Include="ui\Window.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

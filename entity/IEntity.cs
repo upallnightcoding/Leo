@@ -11,7 +11,9 @@ namespace Leo
 
         protected VAO vao = null;
 
-        protected abstract string LoadTexture();
+        // Abstract Functions
+        //-------------------
+        protected abstract Texture CreateEntityTexture();
 
         public void Display()
         {
@@ -31,8 +33,8 @@ namespace Leo
             shader = new Shader();
 
             //texture = Texture.LoadFromFile(LoadTexture());
-
-            texture = new Texture(LoadTexture());
+            //texture = new Texture(LoadTexture());
+            texture = CreateEntityTexture();
         }
     }
 }

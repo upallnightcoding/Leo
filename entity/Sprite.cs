@@ -5,9 +5,12 @@ namespace Leo.entity
 {
     class Sprite : IEntity
     {
-        protected override string LoadTexture()
+        private string TEST_IMAGE = 
+            "D:/Projects/c#/OpenTkDemo/images/container.png";
+
+        protected override Texture CreateEntityTexture()
         {
-            return ("D:/Projects/c#/OpenTkDemo/images/container.png");
+            return (new Texture(TEST_IMAGE));
         }
     }
 }
